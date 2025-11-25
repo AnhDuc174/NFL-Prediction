@@ -110,6 +110,4 @@ You now have:
 - Evaluation utilities (`kaggle_evaluation/`)
 
 This dataset supports building player movement forecasting models to predict precise x/y locations during passing plays.
-![Alt Text](<img width="1908" height="1069" alt="image" src="https://github.com/user-attachments/assets/665c6ada-f958-4d65-88e7-d7106e440f42" />)
-
 
