@@ -1,3 +1,88 @@
+## 🏈 Overview
+
+The **downfield pass** is one of the most iconic plays in American football. Once the ball is in the air, the outcome becomes unpredictable—touchdowns, interceptions, contested catches, and incompletions all hang in the balance. This suspense is part of what makes the sport so thrilling.
+
+The **2026 Big Data Bowl** aims to deepen the NFL’s understanding of **player movement during pass plays**, specifically focusing on the period from the quarterback’s throw to the moment the ball is caught or ruled incomplete.
+
+### Offensive Perspective  
+The **targeted receiver** must move efficiently toward the ball’s landing point to complete the catch.
+
+### Defensive Perspective  
+Multiple defenders may pursue the ball simultaneously, attempting to:
+- prevent the catch  
+- intercept the pass  
+- contest the receiver  
+
+The challenge is to model and predict these movements.
+
+---
+
+## 🎯 Prediction Competition Goal
+
+Participants must **predict player movement** *while the ball is in the air*.  
+The provided data includes:
+
+- Pre-pass **Next Gen Stats** tracking data  
+- Identification of the **targeted receiver**  
+- **Ball landing location**  
+
+When the ball is released, the input ends — the rest must be predicted.
+
+The goal:  
+> **Generate accurate frame-by-frame x,y movement predictions for every player in the play.**
+
+---
+
+## 📌 Competition Specifics
+
+### Frame Rate
+- NFL tracking data captures **10 frames per second**.  
+- Example: A 2.5-second pass → **25 frames to predict**.
+
+### Data Filtering
+These plays **are excluded**:
+- Quick passes (< 0.5s in the air)
+- Deflected passes
+- Throwaway passes
+
+### Evaluation Windows
+- **Training phase:** evaluated using historical data.  
+- **Leaderboard:** evaluated on future data — specifically, a *live leaderboard* for the last **five weeks of the 2025 NFL season**.
+
+---
+
+## 📊 Evaluation Metric
+
+Submissions are scored using:
+
+### **Root Mean Squared Error (RMSE)**  
+Measured between:
+- Predicted player x/y trajectory  
+- Actual observed trajectory  
+
+Official metric details can be found on the competition page.
+
+---
+
+## 📤 Submission Requirements
+
+Participants must submit predictions **via the provided evaluation API**, which processes **one play at a time**.
+
+Your model must output:
+
+```
+x, y
+```
+
+for every row in the **test dataframe**, where each row corresponds to:
+
+- `game_id`
+- `play_id`
+- `nfl_id`
+- `frame_id`
+
+Accurate frame-by-frame player movement prediction is the objective.
+
 # NFL Big Data Bowl 2026 — Dataset Description
 
 This repository contains the data and supporting files for the **2026 NFL Big Data Bowl** competition.  
